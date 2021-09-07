@@ -63,9 +63,7 @@
             margin: 0 auto;
             text-align: center;
             padding-top: 40px;
-            padding-right: 60px;
             padding-bottom: 60px;
-            padding-left: 60px;
         }
 
         .alta_banner_wrap nav {
@@ -134,9 +132,9 @@
 
         .alta_inner_content_column {
             padding-top: 40px;
-            padding-right: 60px;
+            padding-right: 50px;
             padding-bottom: 40px;
-            padding-left: 60px;
+            padding-left: 50px;
         }
 
         .alta_inner_footer_wrap {
