@@ -8,6 +8,14 @@
             background-position: top left;
             background-size: auto;
         }
+ 
+        img {
+            padding-right:1px;
+        }
+
+        a {
+            target:_blank;
+        }
 
         .Text_2_Default,
         .alta_inner_heading_wrap {
