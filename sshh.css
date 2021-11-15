@@ -13,9 +13,15 @@
             padding-right:1px;
         }
 
-        a {
-            target:_blank;
+        XXsmall {
+                font-size: 1.0rem;
+                floatxx:left;
         }
+
+       .XXcnTitle1
+       {
+	float:left;
+       }
 
         .Text_2_Default,
         .alta_inner_heading_wrap {
@@ -58,7 +64,7 @@
             text-align: center;
             background-attachment: scroll;
             background-color: #ffffff;
-            max-width: 960px;
+            max-width: 1280px;
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -76,7 +82,7 @@
 
         .alta_banner_wrap nav {
             margin: 0 auto;
-            max-width: 960px;
+            max-width: 1280px;
             padding-top: 5px;
             padding-bottom: 5px;
             background-color: #f9f9f9;
@@ -129,7 +135,7 @@
 
         .alta_content_wrap {
             margin: 0 auto;
-            max-width: 960px;
+            max-width: 1280px;
             background-color: #ffffff;
         }
 
@@ -258,24 +264,6 @@
                 text-transform: none;
             }
 
-        .sys_layout h6, .sys_txt h6 {
-            font-family: 'Allerta';
-            font-size: 0.7rem;
-            color: #7a7a7a;
-            text-decoration: none;
-            letter-spacing: 2px;
-            line-height: 1.5em;
-            text-transform: none;
-        }
-
-            .sys_layout h6 a, .sys_layout h6 a:link, .sys_layout h6 a:hover, .sys_layout h6 a:visited {
-                font-family: 'Allerta';
-                font-size: 0.7rem;
-                color: #7a7a7a;
-                letter-spacing: 2px;
-                line-height: 1.5em;
-                text-transform: none;
-            }
         /*button widget*/
         .sys_layout .sys_button a, .sys_layout .sys_button a:link, .sys_layout .sys_button a:visited {
             display: inline-block;
