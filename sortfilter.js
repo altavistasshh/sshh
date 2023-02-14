@@ -44,8 +44,9 @@ function sortTbl(tableNode, Col, Desc, cType) {
 
   for (var i = 0; i < trl; i++) {
 //    if (i==0) {continue}			// Original Filter is the first row
-    { 
-      a[i] = trs[i];
+    {
+      if (trs[i].getAttribute("style")!="display:none")
+        a[i] = trs[i];
     }
   }
   a.sort(compareCol(Col,Desc,cType));
@@ -62,11 +63,14 @@ function markTbl(tableNode) {
     var tBody = tableNode.tBodies[0];
     var trs = tBody.rows;
     var trl = trs.length;
+    var cnt=0;
 
     for (var i = 0; i < trl; i++) {
-        if (i % 2 == 0 && oddbc != '')
+        if (trs[i].getAttribute("style")!="display:none")
+	  cnt++;
+        if (cnt % 2 == 0 && oddbc != '')
             trs[i].setAttribute("bgColor", oddbc);
-        if (i % 2 == 1 && evenbc != '')
+        if (cnt % 2 == 1 && evenbc != '')
             trs[i].setAttribute("bgColor", evenbc);
     }
 }
@@ -332,4 +336,40 @@ function showAll()
   {
       this.rows[i].style.display = "";
   }
+}
+
+function filterTbl(tableNode, filter)
+{
+    if (filter==null) return;
+    var idx = filter.lastIndexOf("@");
+    var filterIdx;
+    var filterVal;
+    if (idx==-1)
+    {
+	filterIdx = "title";
+	filterVal = filter;
+    } else {
+	filterIdx = filter.substring(idx+1);
+	filterVal = filter.substring(0, idx);
+    }
+    if (filterIdx=='pub') filterIdx=0;
+    else if (filterIdx=='title') filterIdx=1;
+    else if (filterIdx=='year') filterIdx=2;
+    else if (filterIdx=='sub') filterIdx=4;
+    else if (filterIdx=='cat') filterIdx=3;
+    else return;
+
+    var tBody = tableNode.tBodies[0];
+    var trs = tBody.rows;
+    var trl = trs.length;
+    var j = filterIdx;
+    filterVal = decodeURIComponent(filterVal).toLowerCase();
+
+//    alert(trs[0].cells[0].textContent);
+    for (var i = 0; i < trl; i++) {
+	var text = trs[i].cells[j].textContent.toLowerCase();
+	if (!text.match(filterVal))	// filterVal = re string
+            trs[i].setAttribute("style", "display:none");
+    }
+
 }
