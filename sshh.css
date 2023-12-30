@@ -26,8 +26,7 @@
 
         .Text_2_Default,
         .alta_inner_heading_wrap {
-            word-wrap: break-word;
-        }
+            word-wrap: break-word;        }
 
         .alta_bg_overlay {
             display: table;
@@ -52,12 +51,7 @@
             vertical-align: top;
         }
 
-        .alta_banner_wrap {
-            text-align: center;
-            margin: 0 auto;
-        }
-
-        .alta_outer_heading_wrap {
+        .heading_wrap {
             text-align: center;
             margin: 0 auto;
             display: table;
@@ -70,68 +64,8 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-image: url(ban.jpg);
-        }
-
-        .alta_inner_heading_wrap {
-            display: table-cell;
-            vertical-align: middle;
-            margin: 0 auto;
-            text-align: center;
             padding-top: 40px;
-            padding-bottom: 60px;
-        }
-
-        .alta_banner_wrap nav {
-            margin: 0 auto;
-            max-width: 1100px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            background-color: #f9f9f9;
-        }
-
-        .alta_inner_nav_wrap {
-            margin: 0 auto;
-        }
-
-        .alta_banner_wrap nav ul.sys_navigation {
-            text-align: center;
-        }
-
-        .alta_banner_wrap h1 {
-            text-align: center;
-            margin: 0;
-        }
-
-        .alta_site_tagline {
-            margin: 0;
-            font-family: 'Open Sans';
-            font-size: 1.5rem;
-            color: #7a7a7a;
-            text-decoration: none;
-            letter-spacing: 5px;
-            line-height: 1.5em;
-            text-transform: none;
-        }
-
-            .alta_site_tagline span {
-                display: inline-block;
-                margin: 20px 0 0 0;
-            }
-
-        ul.sys_navigation {
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-            ul.sys_navigation li {
-                display: inline;
-                list-style-type: none;
-                margin: 0 20px 0 0;
-            }
-
-        .alta_inner_nav_wrap ul.sys_navigation li:last-child {
-            margin: 0;
+            padding-bottom: 20px;
         }
 
         .alta_content_wrap {
@@ -140,12 +74,9 @@
             background-color: #f5f5f5;
         }
 
-        .alta_content_column {
+        .content_column {
             margin: 0 auto;
             min-height: 200px;
-        }
-
-        .alta_inner_content_column {
             padding-top: 40px;
             padding-right: 50px;
             padding-bottom: 40px;
@@ -159,7 +90,7 @@
 
 
         /* Site Title */
-        #sys_heading, a#sys_heading, #sys_banner h1 a, #header h1 a, div#heading h1 a {
+        h1,#sys_heading, a#sys_heading, #sys_banner h1 a, #header h1 a, div#heading h1 a {
             font-family: 'Voltaire';
             font-size: 4.4rem;
             color: #7a7a7a;
@@ -191,219 +122,12 @@
         /* Headings (h2, h3, h4, h5, h6) */
         .sys_layout h2, .sys_txt h2 {
             font-family: 'Allerta';
-            font-size: 1.5rem;
-            color: #7a7a7a;
+            font-size: 2.0rem;
+            color: #353535;
             text-decoration: none;
             letter-spacing: 2px;
             line-height: 1.5em;
             text-transform: none;
         }
 
-            .sys_layout h2 a, .sys_layout h2 a:link, .sys_layout h2 a:hover, .sys_layout h2 a:visited {
-                font-family: 'Allerta';
-                font-size: 1.5rem;
-                color: #7a7a7a;
-                letter-spacing: 2px;
-                line-height: 1.5em;
-                text-transform: none;
-            }
-
-        .sys_layout h3, .sys_txt h3 {
-            font-family: 'Allerta';
-            font-size: 1.2rem;
-            color: #7a7a7a;
-            text-decoration: none;
-            letter-spacing: 2px;
-            line-height: 1.5em;
-            text-transform: none;
-        }
-
-            .sys_layout h3 a, .sys_layout h3 a:link, .sys_layout h3 a:hover, .sys_layout h3 a:visited {
-                font-family: 'Allerta';
-                font-size: 1.2rem;
-                color: #7a7a7a;
-                letter-spacing: 2px;
-                line-height: 1.5em;
-                text-transform: none;
-            }
-
-        .sys_layout h4, .sys_txt h4 {
-            font-family: 'Allerta';
-            font-size: 1rem;
-            color: #7a7a7a;
-            text-decoration: none;
-            letter-spacing: 2px;
-            line-height: 1.5em;
-            text-transform: none;
-        }
-
-            .sys_layout h4 a, .sys_layout h4 a:link, .sys_layout h4 a:hover, .sys_layout h4 a:visited {
-                font-family: 'Allerta';
-                font-size: 1rem;
-                color: #7a7a7a;
-                letter-spacing: 2px;
-                line-height: 1.5em;
-                text-transform: none;
-            }
-
-        .sys_layout h5, .sys_txt h5 {
-            font-family: 'Allerta';
-            font-size: 0.8rem;
-            color: #7a7a7a;
-            text-decoration: none;
-            letter-spacing: 2px;
-            line-height: 1.5em;
-            text-transform: none;
-        }
-
-            .sys_layout h5 a, .sys_layout h5 a:link, .sys_layout h5 a:hover, .sys_layout h5 a:visited {
-                font-family: 'Allerta';
-                font-size: 0.8rem;
-                color: #7a7a7a;
-                letter-spacing: 2px;
-                line-height: 1.5em;
-                text-transform: none;
-            }
-
-        /*button widget*/
-        .sys_layout .sys_button a, .sys_layout .sys_button a:link, .sys_layout .sys_button a:visited {
-            display: inline-block;
-            text-decoration: none;
-        }
-
-            .sys_layout .sys_button a:link, .sys_layout .sys_button a:visited {
-                cursor: pointer;
-            }
-
-        .sys_layout .sys_button a {
-            cursor: default;
-        }
-
-        .sys_layout .sys_button.square a, .sys_layout .sys_button.square a:link {
-            border-radius: 0px;
-        }
-
-        .sys_layout .sys_button.rounded a, .sys_layout .sys_button.rounded a:link {
-            border-radius: 3px;
-        }
-
-        .sys_layout .sys_button.pill a, .sys_layout .sys_button.pill a:link {
-            border-radius: 90px;
-        }
-        /*button sizes*/
-        .sys_layout .sys_button.small a, .sys_layout .sys_button.small a:link, .sys_layout .sys_button.small a:visited {
-            font-size: 0.8rem;
-            padding-top: 0.6rem;
-            padding-bottom: 0.6rem;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-        }
-
-        .sys_layout .sys_button.medium a, .sys_layout .sys_button.medium a:link, .sys_layout .sys_button.medium a:visited {
-            font-size: 0.9rem;
-            padding-top: 0.9rem;
-            padding-bottom: 0.9rem;
-            padding-left: 2.3rem;
-            padding-right: 2.3rem;
-        }
-
-        .sys_layout .sys_button.large a, .sys_layout .sys_button.large a:link, .sys_layout .sys_button.large a:visited {
-            font-size: 1.3rem;
-            padding-top: 1.3rem;
-            padding-bottom: 1.3rem;
-            padding-left: 3.1rem;
-            padding-right: 3.1rem;
-        }
-        /*button styles:small*/
-        .sys_layout .sys_button.small.outline a, .sys_layout .sys_button.small.outline a:link {
-            border-color: #88b7d5;
-            color: #88b7d5;
-            border-style: solid;
-            border-width: 2px;
-        }
-
-            .sys_layout .sys_button.small.outline a:visited {
-                color: #88b7d5;
-            }
-
-        .sys_layout .sys_button.small.solid a, .sys_layout .sys_button.small.solid a:link {
-            background-color: #88b7d5;
-            color: #ffffff;
-            border-color: #88b7d5;
-            border-style: solid;
-            border-width: 2px;
-        }
-
-            .sys_layout .sys_button.small.solid a:visited {
-                color: #ffffff;
-            }
-
-        .sys_layout .sys_button.small.outline a:hover {
-            background-color: #88b7d5;
-            color: #ffffff;
-            text-decoration: none;
-        }
-        /*button styles:medium*/
-        .sys_layout .sys_button.medium.outline a, .sys_layout .sys_button.medium.outline a:link {
-            border-color: #88b7d5;
-            color: #88b7d5;
-            border-style: solid;
-            border-width: 2px;
-        }
-
-            .sys_layout .sys_button.medium.outline a:visited {
-                color: #88b7d5;
-            }
-
-        .sys_layout .sys_button.medium.solid a, .sys_layout .sys_button.medium.solid a:link {
-            background-color: #88b7d5;
-            color: #ffffff;
-            border-color: #88b7d5;
-            border-style: solid;
-            border-width: 2px;
-        }
-
-            .sys_layout .sys_button.medium.solid a:visited {
-                color: #ffffff;
-            }
-
-        .sys_layout .sys_button.medium.outline a:hover {
-            background-color: #88b7d5;
-            color: #ffffff;
-            text-decoration: none;
-        }
-        /*button styles:large*/
-        .sys_layout .sys_button.large.outline a, .sys_layout .sys_button.large.outline a:link {
-            border-color: #88b7d5;
-            color: #88b7d5;
-            border-style: solid;
-            border-width: 2px;
-        }
-
-            .sys_layout .sys_button.large.outline a:visited {
-                color: #88b7d5;
-            }
-
-        .sys_layout .sys_button.large.solid a, .sys_layout .sys_button.large.solid a:link {
-            background-color: #88b7d5;
-            color: #ffffff;
-            border-color: #88b7d5;
-            border-style: solid;
-            border-width: 2px;
-        }
-
-            .sys_layout .sys_button.large.solid a:visited {
-                color: #ffffff;
-            }
-
-        .sys_layout .sys_button.large.outline a:hover {
-            background-color: #88b7d5;
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        .sys_layout .sys_button.solid a:hover {
-            text-decoration: none;
-            opacity: .8;
-        }
 
