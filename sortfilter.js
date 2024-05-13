@@ -144,7 +144,8 @@ function dspydiv(divname)
   var div1 = document.getElementById(divname);
   if (div1 != null)
   {
-      if (div1.style.display=="none") div1.style.display="block";
+	// css defines display as none
+      if (div1.style.display=="" || div1.style.display=="none") div1.style.display="block";
       else div1.style.display="none";
   }  
 }

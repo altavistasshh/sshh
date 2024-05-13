@@ -24,9 +24,13 @@
 	float:left;
        }
 
-        .Text_2_Default,
-        .alta_inner_heading_wrap {
-            word-wrap: break-word;        }
+        .Text_2_Default
+	{
+	    display:block;
+            clear: both;
+            margin:0;
+            word-wrap: break-word;
+        }
 
         .alta_bg_overlay {
             display: table;
@@ -130,4 +134,29 @@
             text-transform: none;
         }
 
+	.bottom {
+		display:block;
+		clear: both;
+		margin:20px 0 0 0;
+	}
 
+	.Horizontal_Line_Default {
+		border-bottom-width:1px;
+		border-bottom-style:solid;
+		border-bottom-color:#cccccc;
+		font-size:0;
+		padding:0;
+		margin:0;
+		height:0;
+		line-height:1.5;
+	}
+
+    	.hideCell {   display:none;	}
+
+	.custom-link {	   /* Define your custom link styles */
+    		text-decoration: none; /* Remove underline */
+	}
+
+	.custom-link:hover {
+    		cursor: pointer; /* Change cursor to hand */
+	}
