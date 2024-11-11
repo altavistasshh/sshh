@@ -134,6 +134,16 @@
             text-transform: none;
         }
 
+	.annotations {
+            font-family: 'Allerta';
+            font-size: 0.6rem;
+            color: #7a7a7a;
+            text-decoration: none;
+            letter-spacing: 2px;
+            line-height: 1.5em;
+            text-transform: none;
+	}
+
 	.bottom {
 		display:block;
 		clear: both;

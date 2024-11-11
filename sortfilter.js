@@ -65,14 +65,50 @@ function markTbl(tableNode) {
     var trl = trs.length;
     var cnt=0;
 
+    var cnttbl = 0;
+    var cntrls=0;
+    var minyear="3000";
+    var maxyear="0000";
+    var mintrs = "3000";
+    var maxtrs = "0000";
+    var text = "";
+    var colrls = 4;
+    var colyear = 2;
+
     for (var i = 0; i < trl; i++) {
         if (trs[i].getAttribute("style")!="display:none")
+	{
 	  cnt++;
+	  cnttbl++;
+	  text = trs[i].cells[colrls].textContent.toLowerCase();
+          if (text != '')
+          {
+	    cntrls++;
+	    if (text.localeCompare(mintrs) < 0) mintrs = text;	    
+	    if (text.localeCompare(maxtrs) > 0) maxtrs = text;
+	  }
+	  text = trs[i].cells[colyear].textContent.toLowerCase();
+	  if (text.localeCompare(minyear) < 0) minyear = text;	    
+	  if (text.localeCompare(maxyear) > 0) maxyear = text;
+            
+	}
         if (cnt % 2 == 0 && oddbc != '')
             trs[i].setAttribute("bgColor", oddbc);
         if (cnt % 2 == 1 && evenbc != '')
             trs[i].setAttribute("bgColor", evenbc);
     }
+
+    text = "共计:"+cnttbl;
+    if (minyear != "3000")
+      text += " (已发布:"+cntrls+", 待发布:"+(cnttbl-cntrls)+") 原片时间:"+minyear+"-"+maxyear;
+    if (mintrs != "3000")
+      text += "  发布时间:"+mintrs+"-"+maxtrs;
+    var element = document.getElementById('atvttl');
+    element.innerHTML = text;
+    
+//    element = document.getElementByID('atvttlcnt');
+// Only display all    element.innerHTML = cnttbl;
+
 }
 
 function parseDate(s) {
@@ -375,13 +411,34 @@ function filterTbl(tableNode, filter)
     var trs = tBody.rows;
     var trl = trs.length;
     var j = filterIdx;
+    var disMatch = true;
     filterVal = decodeURIComponent(filterVal).toLowerCase();
+
+// Here is a modify of RE, if the string have ! at begining, then all re will be false
+
+    if (filterVal.startsWith("!"))
+    {
+        disMatch = false;
+        filterVal = filterVal.substring(1);
+    }
 
 //    alert(trs[0].cells[0].textContent);
     for (var i = 0; i < trl; i++) {
 	var text = trs[i].cells[j].textContent.toLowerCase();
-	if (!text.match(filterVal))	// filterVal = re string
+	var isMatch = text.match(filterVal);
+//	if (!text.match(filterVal))	// filterVal = re string
+        if ((!isMatch && disMatch) || (isMatch && !disMatch)) 
             trs[i].setAttribute("style", "display:none");
     }
 
+}
+
+function setClassText(className, newText)
+{
+
+   var elements = document.querySelectorAll(className);
+//   alert(className+" "+elements.length);
+   elements.forEach(element => {
+            element.textContent = newText;
+    });
 }
