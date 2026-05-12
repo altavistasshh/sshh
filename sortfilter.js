@@ -31,6 +31,24 @@ else {
       arrowD.style.fontFamily="webdings";
       arrowD.style.color="black";
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const links = document.querySelectorAll("a[href]");
+
+    links.forEach(link => {
+        const url = new URL(link.href, window.location.href);
+
+        if (url.hostname !== window.location.hostname) {
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+        } else {
+            link.target = "_self";
+        }
+    });
+});
+
+
 }
 
 function sortTbl(tableNode, Col, Desc, cType) {
@@ -386,7 +404,7 @@ function showAll()
   }
 }
 
-function filterTbl(tableNode, filter)
+function filterTblOld(tableNode, filter)
 {
     if (filter==null) return;
     var idx = filter.lastIndexOf("@");
@@ -431,6 +449,109 @@ function filterTbl(tableNode, filter)
             trs[i].setAttribute("style", "display:none");
     }
 
+}
+
+// URL=filter=A&filer2=B&expr=(filter%26filter2)
+function getFilters(lsearch)
+{
+    console.log(window.location.search);
+//    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(lsearch);
+    let filters = {};
+    const trues = {};
+    for (const [key, value] of params.entries()) {
+      if (key.startsWith("f"))
+      {
+        let filter = {index:1,value:"",isMatch:true};
+	if (value==null) continue;
+        const idx = value.lastIndexOf("@");
+        let filterIdx;
+        let filterVal;
+        if (idx==-1)
+        {
+	   filterIdx = "title";
+	   filterVal = value;
+        } else {
+	   filterIdx = value.substring(idx+1);
+	   filterVal = value.substring(0, idx);
+       }
+       if (filterIdx=='pub') filterIdx=0;
+       else if (filterIdx=='title') filterIdx=1;
+       else if (filterIdx=='year') filterIdx=2;
+       else if (filterIdx=='sub') filterIdx=4;
+       else if (filterIdx=='cat') filterIdx=3;
+       else continue;
+       filter.index = filterIdx;
+       if (filterVal.startsWith("!"))
+       {
+          filter.isMatch = false;
+          filterVal = filterVal.substring(1);
+       }
+       filterVal = decodeURIComponent(filterVal).toLowerCase();
+       filter.value = filterVal;                  
+       filters[key] = filter;
+       trues[key] = "true";
+      }
+    }
+    let expr = params.get("expr");
+    if (expr == null && filters.hasOwnProperty("filter"))
+       expr = "filter";
+    if (expr != null && evaluateExpr(expr, trues) == null)
+      expr = null;
+
+    return { filters, expr };
+}
+
+function evaluateExpr(expr, filters)
+{
+
+//    debugger;
+
+    for (const key in filters) {
+      const value = filters[key];
+      const regex = new RegExp(`\\b${key}\\b`, "g");
+      expr = expr.replace(regex, value);
+    }
+    try {
+      // Use Function constructor to evaluate only logical expressions
+      const result = Function('"use strict"; return (' + expr + ')')();
+      return result;
+    } catch (e) {
+      console.error("Invalid expression", e);
+      return null;
+    }
+}
+
+function filterTbl(tableNode, filter)
+{
+
+    const {filters, expr} = getFilters(filter);
+    if (expr == null) return;
+    const tBody = tableNode.tBodies[0];
+    const trs = tBody.rows;
+    const trl = trs.length;
+
+    for (let i = 0; i < trl; i++) {
+      const rets = {};
+      for (const key in filters)
+      {
+	const filter = filters[key];
+	const text = trs[i].cells[filter.index].textContent.toLowerCase();
+	const isMatch = text.match(filter.value);
+        rets[key] = ((isMatch!=null) == filter.isMatch);
+      }
+      const ret = evaluateExpr(expr, rets);
+      if (!ret)
+        trs[i].setAttribute("style", "display:none");
+    }
+
+}
+
+function renewFilter(lsearch)
+{
+    const tbl = document.getElementById('tid1');
+    filterTbl(tbl, lsearch);
+    markTbl(tbl);
 }
 
 function setClassText(className, newText)

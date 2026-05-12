@@ -14,6 +14,25 @@
             padding-right:1px;
         }
 
+	.scroll-container {
+		display: grid;
+  		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  		gap: 10px;
+ 	}
+
+	.scroll_item {
+  		min-width:200px;
+		height:120px;
+  		background:#eee;
+  		flex-shrink:0;
+ 		scroll-snap-align:start;
+            font-family: 'Allerta';
+            font-size: 2.0rem;
+            color: #353535;
+	    white-space: nowrap;
+	    overflow-x: auto;
+	}
+
         XXsmall {
                 font-size: 1.0rem;
                 floatxx:left;
@@ -97,7 +116,8 @@
         h1,#sys_heading, a#sys_heading, #sys_banner h1 a, #header h1 a, div#heading h1 a {
             font-family: 'Voltaire';
             font-size: 4.4rem;
-            color: #7a7a7a;
+            color: #a1a1a1;
+            color1: #7a7a7a;
             text-decoration: none;
             letter-spacing: 1.9rem;
             line-height: 1.5em;
@@ -169,4 +189,9 @@
 
 	.custom-link:hover {
     		cursor: pointer; /* Change cursor to hand */
+	}
+
+	.liconed {
+		width:16;
+		content: url("edtk.gif")
 	}
